@@ -308,6 +308,149 @@ transform:translateY(0);
 }
 
 }
+        /* ========================= */
+/* Glow Effects */
+/* ========================= */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+top:-250px;
+
+left:-250px;
+
+width:500px;
+
+height:500px;
+
+border-radius:50%;
+
+background:rgba(0,170,255,.10);
+
+filter:blur(120px);
+
+animation:floatLight1 12s ease-in-out infinite;
+
+}
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-250px;
+
+right:-250px;
+
+width:500px;
+
+height:500px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.08);
+
+filter:blur(120px);
+
+animation:floatLight2 14s ease-in-out infinite;
+
+}
+
+@keyframes floatLight1{
+
+0%,100%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(80px,60px);
+
+}
+
+}
+
+@keyframes floatLight2{
+
+0%,100%{
+
+transform:translate(0,0);
+
+}
+
+50%{
+
+transform:translate(-80px,-50px);
+
+}
+
+}
+
+/* متن انتخاب نشود */
+
+::selection{
+
+background:white;
+
+color:black;
+
+}
+
+/* واکنش‌گرا */
+
+@media(max-width:768px){
+
+.hero{
+
+padding:35px;
+
+}
+
+.hero h1{
+
+font-size:46px;
+
+}
+
+.topText{
+
+font-size:18px;
+
+}
+
+.subtitle{
+
+font-size:18px;
+
+}
+
+#startBtn{
+
+font-size:18px;
+
+padding:15px 35px;
+
+}
+
+.moon{
+
+width:120px;
+
+height:120px;
+
+top:30px;
+
+right:30px;
+
+}
+
+}
     
     </style>
 
