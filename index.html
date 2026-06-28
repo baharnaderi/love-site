@@ -504,6 +504,77 @@ transform:scale(.4);
 }
 
 }
+        /* ========================= */
+/* Shooting Star */
+/* ========================= */
+
+.shooting-star{
+
+position:absolute;
+
+top:-100px;
+
+left:-200px;
+
+width:180px;
+
+height:2px;
+
+background:linear-gradient(to right,white,transparent);
+
+border-radius:50%;
+
+transform:rotate(-25deg);
+
+box-shadow:0 0 15px white;
+
+opacity:0;
+
+z-index:2;
+
+animation:shoot 7s linear infinite;
+
+}
+
+@keyframes shoot{
+
+0%{
+
+opacity:0;
+
+transform:translate(0,0) rotate(-25deg);
+
+}
+
+5%{
+
+opacity:1;
+
+}
+
+30%{
+
+opacity:1;
+
+transform:translate(900px,500px) rotate(-25deg);
+
+}
+
+31%{
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:translate(900px,500px) rotate(-25deg);
+
+}
+
+}
     
     </style>
 
@@ -577,6 +648,13 @@ star.style.animationDuration=(2+Math.random()*3)+"s";
 stars.appendChild(star);
 
 }
+        const shooting=document.getElementById("shooting-stars");
+
+const meteor=document.createElement("div");
+
+meteor.className="shooting-star";
+
+shooting.appendChild(meteor);
     </script>
 
 </body>
