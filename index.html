@@ -451,6 +451,59 @@ right:30px;
 }
 
 }
+        /* ========================= */
+/* Real Stars */
+/* ========================= */
+
+.star{
+
+position:absolute;
+
+width:2px;
+
+height:2px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 6px white,
+
+0 0 12px white;
+
+animation:twinkle linear infinite;
+
+}
+
+@keyframes twinkle{
+
+0%{
+
+opacity:.15;
+
+transform:scale(.4);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.8);
+
+}
+
+100%{
+
+opacity:.15;
+
+transform:scale(.4);
+
+}
+
+}
     
     </style>
 
