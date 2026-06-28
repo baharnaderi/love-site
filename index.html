@@ -586,6 +586,23 @@ transition:1s;
 pointer-events:none;
 
 }  
+        body.light{
+
+background:
+radial-gradient(circle at top,#2a4d73 0%,#07111d 45%,#02050a 100%);
+
+transition:1.5s;
+
+}
+
+body.light .moon{
+
+box-shadow:
+0 0 80px rgba(255,255,220,.9),
+0 0 140px rgba(255,255,220,.5),
+0 0 200px rgba(255,255,220,.3);
+
+}
     </style>
 
 </head>
@@ -671,6 +688,13 @@ const hero = document.querySelector(".hero");
 startBtn.addEventListener("click",()=>{
 
 hero.classList.add("hide");
+
+});
+        startBtn.addEventListener("click",()=>{
+
+hero.classList.add("hide");
+
+document.body.classList.add("light");
 
 });
     </script>
