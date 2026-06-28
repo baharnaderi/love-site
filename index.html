@@ -628,9 +628,29 @@ opacity:0;
 }
 
 }
-.moon, .moon:focus, .moon:active{
-outline:none !important;
-box-shadow:none !important;
+.meteor{
+position:absolute;
+width:2px;
+height:120px;
+background:linear-gradient(white,transparent);
+opacity:0;
+transform:rotate(-25deg);
+animation:meteorMove 3s linear forwards;
+z-index:2;
+}
+
+@keyframes meteorMove{
+0%{
+opacity:0;
+transform:translate(0,0) rotate(-25deg);
+}
+10%{
+opacity:1;
+}
+100%{
+opacity:0;
+transform:translate(900px,600px) rotate(-25deg);
+}
 }
  
     </style>
@@ -756,6 +776,23 @@ heart.remove();
 }
 
 setInterval(createHeart,1200);
+        function createMeteor(){
+
+const m=document.createElement("div");
+
+m.className="meteor";
+
+m.style.left=Math.random()*100+"%";
+
+m.style.top=Math.random()*20+"%";
+
+document.body.appendChild(m);
+
+setTimeout(()=>m.remove(),3000);
+
+}
+
+setInterval(createMeteor,4000);
     </script>
 
 </body>
