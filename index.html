@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Mohammadreza</title>
 
+<style>
+body {
+  margin:0;
+  font-family: sans-serif;
+  background: radial-gradient(circle at top, #0b0f2a, #000);
+  color:white;
+  overflow-x:hidden;
+  text-align:center;
+}
+
+/* صفحه اول */
+#start {
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+h1 {
+  font-size:40px;
+  color:#ffd700;
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0% {text-shadow:0 0 5px #ffd700;}
+  50% {text-shadow:0 0 25px #ffd700;}
+  100% {text-shadow:0 0 5px #ffd700;}
+}
+
+/* ماه */
+.moon {
+  width:120px;
+  height:120px;
+  background: #f5f3ce;
+  border-radius:50%;
+  box-shadow:0 0 60px #fff;
+  margin:20px auto;
+}
+
+/* متن اسکرول */
+#text {
+  max-width:700px;
+  margin:auto;
+  line-height:2.2;
+  padding:30px;
+  font-size:18px;
+  white-space:pre-line;
+}
+
+/* آخر متن */
+#end {
+  font-size:30px;
+  margin-top:50px;
+  color:#ff4d6d;
+  font-weight:bold;
+}
+
+/* آتش بازی ساده */
+canvas {
+  position:fixed;
+  top:0;
+  left:0;
+}
+</style>
+</head>
