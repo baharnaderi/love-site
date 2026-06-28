@@ -652,6 +652,23 @@ opacity:0;
 transform:translate(900px,600px) rotate(-25deg);
 }
 }
+        @keyframes floatUp{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-900px);
+opacity:0;
+}
+
+}
  
     </style>
 
@@ -757,18 +774,31 @@ heart.style.position="absolute";
 
 heart.style.left=Math.random()*100+"%";
 
-heart.style.bottom="-20px";
+function createHeart(){
 
-heart.style.fontSize=(16+Math.random()*20)+"px";
+const heart=document.createElement("div");
 
-heart.style.opacity="0.8";
+heart.innerHTML = "🤍";
 
-heart.style.animation="floatUp 5s linear forwards";
+heart.style.position = "absolute";
+
+heart.style.left = Math.random()*100 + "%";
+
+heart.style.bottom = "-20px";
+
+heart.style.fontSize = (15 + Math.random()*25) + "px";
+
+heart.style.opacity = Math.random();
+
+heart.style.animation = floatUp ${3 + Math.random()*4}s linear forwards;
 
 document.body.appendChild(heart);
 
-setTimeout(()=>{
+setTimeout(()=>heart.remove(),7000);
 
+}
+
+setInterval(createHeart,800);
 heart.remove();
 
 },5000);
