@@ -532,7 +532,7 @@ opacity:0;
 
 z-index:2;
 
-animation:shoot 7s linear infinite;
+animation:shoot 4s linear infinite;
 
 }
 
@@ -575,7 +575,17 @@ transform:translate(900px,500px) rotate(-25deg);
 }
 
 }
-    
+  .hero.hide{
+
+opacity:0;
+
+transform:scale(.95);
+
+transition:1s;
+
+pointer-events:none;
+
+}  
     </style>
 
 </head>
@@ -655,6 +665,14 @@ const meteor=document.createElement("div");
 meteor.className="shooting-star";
 
 shooting.appendChild(meteor);
+        const startBtn = document.getElementById("startBtn");
+const hero = document.querySelector(".hero");
+
+startBtn.addEventListener("click",()=>{
+
+hero.classList.add("hide");
+
+});
     </script>
 
 </body>
