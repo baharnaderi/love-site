@@ -158,10 +158,10 @@ opacity:1;
 .hero{
 position:relative;
 z-index:5;
-width:90%;
-max-width:900px;
-margin:0 auto;
-padding:60px 30px;
+width:92%;
+max-width:800px;
+margin:60px auto;
+padding:40px 25px;
 border-radius:35px;
 text-align:center;
 background:rgba(255,255,255,.06);
@@ -169,10 +169,8 @@ backdrop-filter:blur(18px);
 -webkit-backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,.15);
 box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
-animation:fadeUp 1.8s ease;
 overflow:hidden;
 }
-
 /* متن های اول */
 
 .topText{
@@ -627,13 +625,26 @@ font-size:32px;
 }
 
 .fadeText{
-font-size:14px;
+opacity:0;
+transform:translateY(20px);
+transition:1s ease;
+padding:0 10px;
+word-break:break-word;
+line-height:1.8;
 }
 
-#startBtn{
-font-size:16px;
-padding:12px 25px;
+.fadeText.show{
+opacity:1;
+transform:translateY(0);
 }
+        body{
+margin:0;
+padding:0;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+min-height:100vh;
+overflow-x:hidden;
 }
     </style>
 
@@ -960,7 +971,7 @@ f.remove();
 texts.forEach((t,i)=>{
 setTimeout(()=>{
 t.classList.add("show");
-}, i * 1800);
+}, i * 400);
 });
        // hero.style.display="none";
       //   message.style.display="block";
