@@ -584,127 +584,121 @@ padding:35px 18px;
 </div>
 
     <script>
+// این قسمت را فعلاً خالی بگذار
+      const stars = document.getElementById("stars");
 
-// ========================
-// STARS
-// ========================
-const stars = document.getElementById("stars");
+for(let i=0;i<180;i++){
 
-for (let i = 0; i < 180; i++) {
-    const star = document.createElement("span");
-    star.className = "star";
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.animationDelay = Math.random() * 5 + "s";
-    star.style.animationDuration = (2 + Math.random() * 3) + "s";
-    stars.appendChild(star);
+const star=document.createElement("span");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDelay=Math.random()*5+"s";
+
+star.style.animationDuration=(2+Math.random()*3)+"s";
+
+stars.appendChild(star);
+
+}
+        const shooting=document.getElementById("shooting-stars");
+
+const meteor=document.createElement("div");
+
+meteor.className="shooting-star";
+
+shooting.appendChild(meteor);
+
+        function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.innerHTML = "🤍";
+
+heart.style.position = "absolute";
+
+heart.style.left = Math.random()*100 + "%";
+
 }
 
-// ========================
-// SHOOTING STAR
-// ========================
-const shooting = document.getElementById("shooting-stars");
-
-function createMeteor() {
-    const meteor = document.createElement("div");
-    meteor.className = "shooting-star";
-    shooting.appendChild(meteor);
-
-    setTimeout(() => meteor.remove(), 7000);
-}
-
-setInterval(createMeteor, 6000);
-
-// ========================
-// HEARTS (FLOAT)
-// ========================
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.innerHTML = "🤍";
-    heart.style.position = "absolute";
-    heart.style.left = Math.random() * 100 + "%";
-    heart.style.bottom = "-20px";
-    heart.style.fontSize = "20px";
-    heart.style.opacity = "0.8";
-    heart.style.animation = "floatUp 6s linear forwards";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6000);
-}
-
-setInterval(createHeart, 4000);
-
-// ========================
-// ELEMENTS
-// ========================
-const startBtn = document.getElementById("startBtn");
+        const startBtn = document.getElementById("startBtn");
 const hero = document.querySelector(".hero");
 const message = document.getElementById("message");
-const texts = document.querySelectorAll(".fadeText");
-const bgMusic = document.getElementById("bgMusic");
 
-// ========================
-// START BUTTON
-// ========================
 startBtn.onclick = function () {
 
     hero.style.opacity = "0";
 
-    setTimeout(() => {
-        hero.style.display = "none";
-        message.style.display = "flex";
+    setTimeout(function () {
 
-        // scroll reset
-        window.scrollTo(0, 0);
+hero.style.display = "none";
+message.style.display = "flex";
+        texts.forEach((t,i)=>{
+setTimeout(()=>{
+t.classList.add("show");
+},i*1800);
+});
+    },800);
 
-        // text animation
-        texts.forEach((t, i) => {
-            setTimeout(() => {
-                t.classList.add("show");
-            }, i * 1200);
-        });
-
-        // music
-        if (bgMusic) {
-            bgMusic.volume = 0.5;
-            bgMusic.play().catch(() => {});
-        }
-
-        // final effect
-        setTimeout(finalEffect, 2000);
-
-    }, 800);
 };
+       const bgMusic = document.getElementById("bgMusic");
 
-// ========================
-// FINAL EFFECT
-// ========================
-function finalEffect() {
+ // bgMusic.play();
 
-    for (let i = 0; i < 20; i++) {
-        const f = document.createElement("div");
-        f.className = "firework";
-        f.style.left = Math.random() * window.innerWidth + "px";
-        f.style.top = Math.random() * window.innerHeight + "px";
+        function firework(){
 
-        document.body.appendChild(f);
+const f=document.createElement("div");
 
-        setTimeout(() => f.remove(), 1200);
-    }
+f.className="firework";
+
+f.style.left=Math.random()*window.innerWidth+"px";
+
+f.style.top=Math.random()*window.innerHeight+"px";
+
+document.body.appendChild(f);
+
+setTimeout(()=>{
+f.remove();
+},1000);
+
 }
 
-// ========================
-// OPTIONAL: float animation for hearts
-// ========================
-const style = document.createElement("style");
-style.innerHTML = 
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-100vh); opacity: 0; }
+function firework(){
+
+const f=document.createElement("div");
+
+f.className="firework";
+
+f.style.left=Math.random()*window.innerWidth+"px";
+
+f.style.top=(100+Math.random()*(window.innerHeight-200))+"px";
+
+f.style.width=(6+Math.random()*8)+"px";
+
+f.style.height=f.style.width;
+    const colors=["#ff4d6d","#ffd93d","#4dff88","#4da6ff","#b84dff","#ffffff"];
+
+f.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+document.body.appendChild(f);
+
+setTimeout(()=>{
+f.remove();
+},1000);
+
 }
-;
-document.head.appendChild(style);
+        const texts=document.querySelectorAll(".fadeText");
+
+texts.forEach((t,i)=>{
+setTimeout(()=>{
+t.classList.add("show");
+}, i * 400);
+});
+       // hero.style.display="none";
+      //   message.style.display="block";
     
     </script>
 
