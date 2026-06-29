@@ -519,7 +519,7 @@ margin:80px auto;
 position:fixed;
 inset:0;
 pointer-events:none;
-z-index:5; /* مهم: زیر message، بالای background */
+z-index:1; /* مهم: زیر message، بالای background */
 overflow:hidden;
 }
 
@@ -876,19 +876,25 @@ t.classList.add("show");
        // hero.style.display="none";
       //   message.style.display="block";
 
-      setInterval(() => {
+    setInterval(() => {
 
 const heart = document.createElement("div");
 heart.className = "heart";
 heart.innerHTML = "🤍";
 
-heart.style.left = Math.random() * 100 + "vw";
-
+/* خیلی مهم: داخل body مستقیم نره */
 document.getElementById("heart-layer").appendChild(heart);
+
+/* موقعیت کاملاً مستقل از متن */
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.bottom = "-20px";
+
+/* جلوگیری از چسبیدن به متن */
+heart.style.position = "fixed";
 
 setTimeout(() => heart.remove(), 7000);
 
-}, 8000);
+}, 2500);
     
     </script>
 
