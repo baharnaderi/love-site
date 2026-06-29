@@ -602,6 +602,16 @@ transform:scale(20);
 opacity:0;
 }
 }
+        .fadeText{
+opacity:0;
+transform:translateY(30px);
+transition:1.2s;
+}
+
+.fadeText.show{
+opacity:1;
+transform:translateY(0);
+}
     </style>
 
 </head>
@@ -767,6 +777,13 @@ f.remove();
 },1000);
 
 }
+        const texts=document.querySelectorAll(".fadeText");
+
+texts.forEach((t,i)=>{
+setTimeout(()=>{
+t.classList.add("show");
+},i*1800);
+});
     
     </script>
 
