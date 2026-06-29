@@ -157,11 +157,11 @@ opacity:1;
 
 .hero{
 position:relative;
-z-index:5;
-width:92%;
+z-index:10;
+width:90%;
 max-width:800px;
-margin:60px auto;
-padding:40px 25px;
+margin:100px auto;
+padding:60px 25px;
 border-radius:35px;
 text-align:center;
 background:rgba(255,255,255,.06);
@@ -169,7 +169,7 @@ backdrop-filter:blur(18px);
 -webkit-backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,.15);
 box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
-overflow:hidden;
+overflow:visible;
 }
 /* متن های اول */
 
@@ -610,6 +610,7 @@ align-items:center;
 justify-content:center;
 text-align:center;
 gap:20px;
+z-index:10;
 }
         body{
 padding:40px 0;
@@ -637,14 +638,15 @@ line-height:1.8;
 opacity:1;
 transform:translateY(0);
 }
-        body{
+     body{
 margin:0;
 padding:0;
+min-height:100vh;
 display:flex;
 justify-content:center;
-align-items:flex-start;
-min-height:100vh;
+align-items:center;
 overflow-x:hidden;
+overflow-y:auto;
 }
     </style>
 
