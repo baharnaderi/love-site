@@ -575,6 +575,27 @@ transform:translate(900px,500px) rotate(-25deg);
 }
 
 }
+        .firework{
+position:fixed;
+width:6px;
+height:6px;
+border-radius:50%;
+background:#fff;
+pointer-events:none;
+animation:boom 1s ease-out forwards;
+z-index:999;
+}
+
+@keyframes boom{
+0%{
+transform:scale(1);
+opacity:1;
+}
+100%{
+transform:scale(25);
+opacity:0;
+}
+}
     
     </style>
 
@@ -698,6 +719,26 @@ message.style.display = "flex";
         const bgMusic = document.getElementById("bgMusic");
 
 bgMusic.play();
+
+        function firework(){
+
+const f=document.createElement("div");
+
+f.className="firework";
+
+f.style.left=Math.random()*window.innerWidth+"px";
+
+f.style.top=Math.random()*window.innerHeight+"px";
+
+document.body.appendChild(f);
+
+setTimeout(()=>{
+f.remove();
+},1000);
+
+}
+
+setInterval(firework,1800);
     </script>
 
 </body>
