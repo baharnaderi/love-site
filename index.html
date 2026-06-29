@@ -11,7 +11,8 @@
 
     <style>
 
-    *{
+   /* ========== RESET ========== */
+*{
 margin:0;
 padding:0;
 box-sizing:border-box;
@@ -21,140 +22,105 @@ html{
 scroll-behavior:smooth;
 }
 
+/* ========== BODY ========== */
 body{
-
 font-family:'Vazirmatn',sans-serif;
-
-height:100vh;
-
+min-height:100vh;
 overflow:hidden;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
-background:
-radial-gradient(circle at top,#18304d 0%,#07111d 40%,#02050a 100%);
-
+background:radial-gradient(circle at top,#18304d 0%,#07111d 40%,#02050a 100%);
 color:white;
-
 position:relative;
-
 }
 
-/* ماه */
-
-.moon{
-
+/* ========== BACKGROUND GLOW (BEFORE) ========== */
+body::before{
+content:"";
 position:absolute;
-
-top:60px;
-
-right:20px;
-
-width:180px;
-
-height:180px;
-
+top:-250px;
+left:-250px;
+width:500px;
+height:500px;
 border-radius:50%;
+background:rgba(0,170,255,.10);
+filter:blur(120px);
+animation:floatLight1 12s ease-in-out infinite;
+}
 
+/* ========== BACKGROUND GLOW (AFTER) ========== */
+body::after{
+content:"";
+position:absolute;
+bottom:-250px;
+right:-250px;
+width:500px;
+height:500px;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+filter:blur(120px);
+animation:floatLight2 14s ease-in-out infinite;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes floatLight1{
+0%,100%{transform:translate(0,0);}
+50%{transform:translate(80px,60px);}
+}
+
+@keyframes floatLight2{
+0%,100%{transform:translate(0,0);}
+50%{transform:translate(-80px,-50px);}
+}
+
+/* ========== MOON ========== */
+.moon{
+position:absolute;
+top:60px;
+right:20px;
+width:180px;
+height:180px;
+border-radius:50%;
 background:radial-gradient(circle,#fffdf3,#f7f0bf,#d8d3aa);
-
 box-shadow:
-
 0 0 40px rgba(255,255,220,.8),
-
 0 0 90px rgba(255,255,220,.4),
-
 0 0 150px rgba(255,255,220,.25);
-
 z-index:1;
-
 animation:moonFloat 6s ease-in-out infinite;
-
 }
 
 @keyframes moonFloat{
-
-0%,100%{
-
-transform:translateY(0px);
-
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(-12px);}
 }
 
-50%{
-
-transform:translateY(-12px);
-
-}
-
-}
-
-/* ستاره ها */
-
+/* ========== STARS BACKGROUND ========== */
 #stars{
-
 position:absolute;
-
 left:0;
-
 top:0;
-
 width:100%;
-
 height:100%;
-
 background-image:
-
 radial-gradient(white 1px,transparent 1px),
-
 radial-gradient(white 1px,transparent 1px),
-
 radial-gradient(#fff 1px,transparent 1px);
-
-background-size:
-
-180px 180px,
-
-250px 250px,
-
-320px 320px;
-
-background-position:
-
-0 0,
-
-50px 90px,
-
-120px 30px;
-
+background-size:180px 180px,250px 250px,320px 320px;
+background-position:0 0,50px 90px,120px 30px;
 opacity:.85;
-
-animation:stars 5s ease-in-out infinite alternate; 
-
+animation:stars 5s ease-in-out infinite alternate;
 }
 
 @keyframes stars{
-
-from{
-
-opacity:.45;
-
+from{opacity:.45;}
+to{opacity:1;}
 }
 
-to{
+/* ========== END PART 1 ========== */
 
-opacity:1;
-
-}
-
-}
-        /* ========================= */
-/* Hero */
-/* ========================= */
-
+        /* ========== HERO ========== */
 .hero{
 display:block;
 width:90%;
@@ -175,425 +141,89 @@ box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
 position:relative;
 z-index:10;
 }
-/* متن های اول */
 
+/* ========== TOP TEXT ========== */
 .topText{
-
 font-size:22px;
-
 font-weight:300;
-
 line-height:2;
-
 opacity:.9;
-
 margin-bottom:8px;
-
 }
 
 .heart{
-
 color:#ffe6ef;
-
 font-weight:600;
-
 }
 
-/* عنوان */
-
+/* ========== TITLE ========== */
 .hero h1{
-
 margin-top:35px;
-
 font-size:72px;
-
 line-height:1.2;
-
 font-weight:700;
-
 letter-spacing:2px;
-
-text-shadow:
-
-0 0 20px rgba(255,255,255,.25);
-
+text-shadow:0 0 20px rgba(255,255,255,.25);
 }
 
-/* زیر عنوان */
-
+/* ========== SUBTITLE ========== */
 .subtitle{
-
 margin-top:18px;
-
 font-size:24px;
-
 opacity:.85;
-
 }
 
-/* دکمه */
-
+/* ========== BUTTON ========== */
 #startBtn{
-
 margin-top:55px;
-
 padding:18px 55px;
-
 border:none;
-
 border-radius:60px;
-
 font-size:22px;
-
 font-family:'Vazirmatn',sans-serif;
-
 cursor:pointer;
-
 background:linear-gradient(45deg,#ffffff,#f7e8ff);
-
 color:#222;
-
 font-weight:700;
-
 transition:.35s;
-
-box-shadow:
-
-0 0 25px rgba(255,255,255,.35);
-
+box-shadow:0 0 25px rgba(255,255,255,.35);
 }
 
 #startBtn:hover{
-
 transform:translateY(-6px) scale(1.05);
-
-box-shadow:
-
-0 0 40px rgba(255,255,255,.6);
-
+box-shadow:0 0 40px rgba(255,255,255,.6);
 }
 
-/* انیمیشن ورود */
+/* ========== END PART 2 ========== */
+        /* ========== MESSAGE BOX ========== */
+#message{
+display:none;
+width:90%;
+max-width:800px;
+margin:100px auto;
+padding:50px 30px;
+border-radius:25px;
 
-@keyframes fadeUp{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+text-align:center;
+gap:20px;
 
-from{
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
 
-opacity:0;
+border:1px solid rgba(255,255,255,.15);
+box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
 
-transform:translateY(70px);
-
+z-index:10;
+overflow-y:auto;
+max-height:80vh;
 }
 
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-        /* ========================= */
-/* Glow Effects */
-/* ========================= */
-
-body::before{
-
-content:"";
-
-position:absolute;
-
-top:-250px;
-
-left:-250px;
-
-width:500px;
-
-height:500px;
-
-border-radius:50%;
-
-background:rgba(0,170,255,.10);
-
-filter:blur(120px);
-
-animation:floatLight1 12s ease-in-out infinite;
-
-}
-
-body::after{
-
-content:"";
-
-position:absolute;
-
-bottom:-250px;
-
-right:-250px;
-
-width:500px;
-
-height:500px;
-
-border-radius:50%;
-
-background:rgba(255,255,255,.08);
-
-filter:blur(120px);
-
-animation:floatLight2 14s ease-in-out infinite;
-
-}
-
-@keyframes floatLight1{
-
-0%,100%{
-
-transform:translate(0,0);
-
-}
-
-50%{
-
-transform:translate(80px,60px);
-
-}
-
-}
-
-@keyframes floatLight2{
-
-0%,100%{
-
-transform:translate(0,0);
-
-}
-
-50%{
-
-transform:translate(-80px,-50px);
-
-}
-
-}
-
-/* متن انتخاب نشود */
-
-::selection{
-
-background:white;
-
-color:black;
-
-}
-
-/* واکنش‌گرا */
-
-@media(max-width:768px){
-
-.hero{
-
-padding:35px;
-
-}
-
-.hero h1{
-
-font-size:46px;
-
-}
-
-.topText{
-
-font-size:18px;
-
-}
-
-.subtitle{
-
-font-size:18px;
-
-}
-
-#startBtn{
-
-font-size:18px;
-
-padding:15px 35px;
-
-}
-
-.moon{
-
-width:120px;
-
-height:120px;
-
-top:30px;
-
-right:30px;
-
-}
-
-}
-        /* ========================= */
-/* Real Stars */
-/* ========================= */
-
-.star{
-
-position:absolute;
-
-width:2px;
-
-height:2px;
-
-background:white;
-
-border-radius:50%;
-
-box-shadow:
-
-0 0 6px white,
-
-0 0 12px white;
-
-animation:twinkle linear infinite;
-
-}
-
-@keyframes twinkle{
-
-0%{
-
-opacity:.15;
-
-transform:scale(.4);
-
-}
-
-50%{
-
-opacity:1;
-
-transform:scale(1.8);
-
-}
-
-100%{
-
-opacity:.15;
-
-transform:scale(.4);
-
-}
-
-}
-        /* ========================= */
-/* Shooting Star */
-/* ========================= */
-
-.shooting-star{
-
-position:absolute;
-
-top:-100px;
-
-left:-200px;
-
-width:180px;
-
-height:2px;
-
-background:linear-gradient(to right,white,transparent);
-
-border-radius:50%;
-
-transform:rotate(-25deg);
-
-box-shadow:0 0 15px white;
-
-opacity:0;
-
-z-index:2;
-
-animation:shoot 7s linear infinite;
-
-}
-
-@keyframes shoot{
-
-0%{
-
-opacity:0;
-
-transform:translate(0,0) rotate(-25deg);
-
-}
-
-5%{
-
-opacity:1;
-
-}
-
-30%{
-
-opacity:1;
-
-transform:translate(900px,500px) rotate(-25deg);
-
-}
-
-31%{
-
-opacity:0;
-
-}
-
-100%{
-
-opacity:0;
-
-transform:translate(900px,500px) rotate(-25deg);
-
-}
-
-}
-        .firework{
-position:fixed;
-width:6px;
-height:6px;
-border-radius:50%;
-background:#fff;
-pointer-events:none;
-animation:boom 1s ease-out forwards;
-z-index:999;
-}
-
-@keyframes boom{
-0%{
-transform:scale(0);
-opacity:1;
-}
-
-50%{
-transform:scale(12);
-opacity:1;
-}
-
-100%{
-transform:scale(20);
-opacity:0;
-}
-}
-        .fadeText{
-opacity:0;
-transform:translateY(30px);
-transition:1.2s;
-}
-
+/* ========== FADE TEXT ========== */
 .fadeText{
 opacity:0;
 transform:translateY(25px);
@@ -607,70 +237,140 @@ opacity:1;
 transform:translateY(0);
 }
 
-#message{
-display:none;
-width:90%;
-max-width:800px;
-margin:100px auto;
-padding:50px 30px;
-border-radius:25px;
-flex-direction:column;
-align-items:center;
-justify-content:flex-start;
-text-align:center;
-gap:20px;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(18px);
--webkit-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.15);
-box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
-z-index:10;
-overflow-y:auto;
-max-height:80vh;
-}
-        body{
-margin:0;
-padding:0;
-min-height:100vh;
-position:relative;
-overflow-x:hidden;
-overflow-y:hidden;
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-}
-        @media(max-width:480px){
-.hero{
-padding:25px 18px;
-}
-
-.hero h1{
-font-size:32px;
-}
-        }
-
-.fadeText{
+/* ========== END PART 3 ========== */
+        /* ========== ANIMATIONS ========== */
+@keyframes fadeUp{
+from{
 opacity:0;
-transform:translateY(25px);
-transition:1s ease;
-padding:0 15px;
-line-height:1.8;
-word-break:break-word;
+transform:translateY(70px);
 }
-
-.fadeText.show{
+to{
 opacity:1;
 transform:translateY(0);
 }
-   body{
-margin:0;
-padding:0;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow-x:hidden;
 }
+
+/* ========== STARS ========== */
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+box-shadow:0 0 6px white,0 0 12px white;
+animation:twinkle linear infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:.15;transform:scale(.4);}
+50%{opacity:1;transform:scale(1.8);}
+100%{opacity:.15;transform:scale(.4);}
+}
+
+/* ========== SHOOTING STAR ========== */
+.shooting-star{
+position:absolute;
+top:-100px;
+left:-200px;
+width:180px;
+height:2px;
+background:linear-gradient(to right,white,transparent);
+border-radius:50%;
+transform:rotate(-25deg);
+box-shadow:0 0 15px white;
+opacity:0;
+z-index:2;
+animation:shoot 7s linear infinite;
+}
+
+@keyframes shoot{
+0%{opacity:0;transform:translate(0,0) rotate(-25deg);}
+5%{opacity:1;}
+30%{opacity:1;transform:translate(900px,500px) rotate(-25deg);}
+31%{opacity:0;}
+100%{opacity:0;transform:translate(900px,500px) rotate(-25deg);}
+}
+
+/* ========== FIREWORK ========== */
+.firework{
+position:fixed;
+width:6px;
+height:6px;
+border-radius:50%;
+background:#fff;
+pointer-events:none;
+animation:boom 1s ease-out forwards;
+z-index:999;
+}
+
+@keyframes boom{
+0%{transform:scale(0);opacity:1;}
+50%{transform:scale(12);opacity:1;}
+100%{transform:scale(20);opacity:0;}
+}
+
+/* ========== END PART 4 ========== */
+        /* ========== MOBILE RESPONSIVE ========== */
+@media(max-width:768px){
+
+.hero{
+padding:35px;
+margin:60px auto;
+}
+
+.hero h1{
+font-size:46px;
+}
+
+.topText{
+font-size:18px;
+}
+
+.subtitle{
+font-size:18px;
+}
+
+#startBtn{
+font-size:18px;
+padding:15px 35px;
+}
+
+.moon{
+width:120px;
+height:120px;
+top:30px;
+right:30px;
+}
+}
+
+/* ========== SMALL MOBILE FIX ========== */
+@media(max-width:480px){
+
+.hero{
+padding:25px 18px;
+margin:50px auto;
+}
+
+.fadeText{
+padding:0 15px;
+word-break:break-word;
+line-height:1.8;
+}
+
+body{
+overflow-x:hidden;
+overflow-y:hidden;
+}
+
+/* prevent layout shift */
+#message{
+margin:60px auto;
+padding:35px 18px;
+}
+}
+
+/* ========== END CSS ========== */
+
     </style>
 
 </head>
@@ -885,121 +585,126 @@ overflow-x:hidden;
 
     <script>
 
-    // این قسمت را فعلاً خالی بگذار
-      const stars = document.getElementById("stars");
+// ========================
+// STARS
+// ========================
+const stars = document.getElementById("stars");
 
-for(let i=0;i<180;i++){
-
-const star=document.createElement("span");
-
-star.className="star";
-
-star.style.left=Math.random()*100+"%";
-
-star.style.top=Math.random()*100+"%";
-
-star.style.animationDelay=Math.random()*5+"s";
-
-star.style.animationDuration=(2+Math.random()*3)+"s";
-
-stars.appendChild(star);
-
-}
-        const shooting=document.getElementById("shooting-stars");
-
-const meteor=document.createElement("div");
-
-meteor.className="shooting-star";
-
-shooting.appendChild(meteor);
-
-        function createHeart(){
-
-const heart=document.createElement("div");
-
-heart.innerHTML = "🤍";
-
-heart.style.position = "absolute";
-
-heart.style.left = Math.random()*100 + "%";
-
+for (let i = 0; i < 180; i++) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 5 + "s";
+    star.style.animationDuration = (2 + Math.random() * 3) + "s";
+    stars.appendChild(star);
 }
 
-        const startBtn = document.getElementById("startBtn");
+// ========================
+// SHOOTING STAR
+// ========================
+const shooting = document.getElementById("shooting-stars");
+
+function createMeteor() {
+    const meteor = document.createElement("div");
+    meteor.className = "shooting-star";
+    shooting.appendChild(meteor);
+
+    setTimeout(() => meteor.remove(), 7000);
+}
+
+setInterval(createMeteor, 6000);
+
+// ========================
+// HEARTS (FLOAT)
+// ========================
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.innerHTML = "🤍";
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.bottom = "-20px";
+    heart.style.fontSize = "20px";
+    heart.style.opacity = "0.8";
+    heart.style.animation = "floatUp 6s linear forwards";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 4000);
+
+// ========================
+// ELEMENTS
+// ========================
+const startBtn = document.getElementById("startBtn");
 const hero = document.querySelector(".hero");
 const message = document.getElementById("message");
+const texts = document.querySelectorAll(".fadeText");
+const bgMusic = document.getElementById("bgMusic");
 
+// ========================
+// START BUTTON
+// ========================
 startBtn.onclick = function () {
 
     hero.style.opacity = "0";
 
-    setTimeout(function () {
+    setTimeout(() => {
+        hero.style.display = "none";
+        message.style.display = "flex";
 
-hero.style.display = "none";
-message.style.display = "flex";
-        texts.forEach((t,i)=>{
-setTimeout(()=>{
-t.classList.add("show");
-},i*1800);
-});
-    },800);
+        // scroll reset
+        window.scrollTo(0, 0);
 
+        // text animation
+        texts.forEach((t, i) => {
+            setTimeout(() => {
+                t.classList.add("show");
+            }, i * 1200);
+        });
+
+        // music
+        if (bgMusic) {
+            bgMusic.volume = 0.5;
+            bgMusic.play().catch(() => {});
+        }
+
+        // final effect
+        setTimeout(finalEffect, 2000);
+
+    }, 800);
 };
-       const bgMusic = document.getElementById("bgMusic");
 
- // bgMusic.play();
+// ========================
+// FINAL EFFECT
+// ========================
+function finalEffect() {
 
-        function firework(){
+    for (let i = 0; i < 20; i++) {
+        const f = document.createElement("div");
+        f.className = "firework";
+        f.style.left = Math.random() * window.innerWidth + "px";
+        f.style.top = Math.random() * window.innerHeight + "px";
 
-const f=document.createElement("div");
+        document.body.appendChild(f);
 
-f.className="firework";
-
-f.style.left=Math.random()*window.innerWidth+"px";
-
-f.style.top=Math.random()*window.innerHeight+"px";
-
-document.body.appendChild(f);
-
-setTimeout(()=>{
-f.remove();
-},1000);
-
+        setTimeout(() => f.remove(), 1200);
+    }
 }
 
-function firework(){
-
-const f=document.createElement("div");
-
-f.className="firework";
-
-f.style.left=Math.random()*window.innerWidth+"px";
-
-f.style.top=(100+Math.random()*(window.innerHeight-200))+"px";
-
-f.style.width=(6+Math.random()*8)+"px";
-
-f.style.height=f.style.width;
-    const colors=["#ff4d6d","#ffd93d","#4dff88","#4da6ff","#b84dff","#ffffff"];
-
-f.style.background=colors[Math.floor(Math.random()*colors.length)];
-
-document.body.appendChild(f);
-
-setTimeout(()=>{
-f.remove();
-},1000);
-
+// ========================
+// OPTIONAL: float animation for hearts
+// ========================
+const style = document.createElement("style");
+style.innerHTML = 
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
 }
-        const texts=document.querySelectorAll(".fadeText");
-
-texts.forEach((t,i)=>{
-setTimeout(()=>{
-t.classList.add("show");
-}, i * 400);
-});
-       // hero.style.display="none";
-      //   message.style.display="block";
+;
+document.head.appendChild(style);
     
     </script>
 
