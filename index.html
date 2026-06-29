@@ -728,50 +728,68 @@ margin:80px auto;
 </div>
 
     <script>
-// این قسمت را فعلاً خالی بگذار
-      const stars = document.getElementById("stars");
+/* =========================
+STARS
+========================= */
+const stars = document.getElementById("stars");
 
-for(let i=0;i<180;i++){
-
-const star=document.createElement("span");
-
-star.className="star";
-
-star.style.left=Math.random()*100+"%";
-
-star.style.top=Math.random()*100+"%";
-
-star.style.animationDelay=Math.random()*5+"s";
-
-star.style.animationDuration=(2+Math.random()*3)+"s";
-
-stars.appendChild(star);
-
-}
-        const shooting=document.getElementById("shooting-stars");
-
-const meteor=document.createElement("div");
-
-meteor.className="shooting-star";
-
-shooting.appendChild(meteor);
-
-        function createHeart(){
-
-const heart=document.createElement("div");
-
-heart.innerHTML = "🤍";
-
-heart.style.position = "absolute";
-
-heart.style.left = Math.random()*100 + "%";
-
+for (let i = 0; i < 180; i++) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 5 + "s";
+    star.style.animationDuration = (2 + Math.random() * 3) + "s";
+    stars.appendChild(star);
 }
 
-        const startBtn = document.getElementById("startBtn");
+/* =========================
+SHOOTING STAR
+========================= */
+const shooting = document.getElementById("shooting-stars");
+
+function createMeteor() {
+    const meteor = document.createElement("div");
+    meteor.className = "shooting-star";
+    shooting.appendChild(meteor);
+    setTimeout(() => meteor.remove(), 7000);
+}
+setInterval(createMeteor, 6000);
+
+/* =========================
+SOFT HEART RAIN (SLOW + FEW)
+========================= */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.innerHTML = "🤍";
+
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.bottom = "-20px";
+    heart.style.fontSize = "18px";
+    heart.style.opacity = "0.8";
+    heart.style.pointerEvents = "none";
+
+    heart.style.animation = "heartUp 8s linear forwards";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+setInterval(createHeart, 8000);
+
+/* =========================
+ELEMENTS
+========================= */
+const startBtn = document.getElementById("startBtn");
 const hero = document.querySelector(".hero");
 const message = document.getElementById("message");
+const texts = document.querySelectorAll(".fadeText");
+const bgMusic = document.getElementById("bgMusic");
 
+/* =========================
+START
+========================= */
 startBtn.onclick = function () {
 
 hero.style.opacity = "0";
@@ -780,70 +798,123 @@ setTimeout(() => {
 hero.style.display = "none";
 message.style.display = "flex";
 
-window.scrollTo(0,0);
+window.scrollTo(0, 0);
 
-texts.forEach((t,i)=>{
-setTimeout(()=>t.classList.add("show"), i*800);
-});
-
-},800);
-
-};
-       const bgMusic = document.getElementById("bgMusic");
-
- // bgMusic.play();
-
-        function firework(){
-
-const f=document.createElement("div");
-
-f.className="firework";
-
-f.style.left=Math.random()*window.innerWidth+"px";
-
-f.style.top=Math.random()*window.innerHeight+"px";
-
-document.body.appendChild(f);
-
-setTimeout(()=>{
-f.remove();
-},1000);
-
-}
-
-function firework(){
-
-const f=document.createElement("div");
-
-f.className="firework";
-
-f.style.left=Math.random()*window.innerWidth+"px";
-
-f.style.top=(100+Math.random()*(window.innerHeight-200))+"px";
-
-f.style.width=(6+Math.random()*8)+"px";
-
-f.style.height=f.style.width;
-    const colors=["#ff4d6d","#ffd93d","#4dff88","#4da6ff","#b84dff","#ffffff"];
-
-f.style.background=colors[Math.floor(Math.random()*colors.length)];
-
-document.body.appendChild(f);
-
-setTimeout(()=>{
-f.remove();
-},1000);
-
-}
-        const texts=document.querySelectorAll(".fadeText");
-
-texts.forEach((t,i)=>{
-setTimeout(()=>{
+/* text reveal */
+texts.forEach((t, i) => {
+setTimeout(() => {
 t.classList.add("show");
-}, i * 400);
+}, i * 1200);
 });
-       // hero.style.display="none";
-      //   message.style.display="block";
+
+/* music */
+if (bgMusic) {
+bgMusic.volume = 0.5;
+bgMusic.play().catch(() => {});
+}
+
+/* MOON PULSE NATURAL */
+startMoonPulse();
+
+/* FINAL SURPRISE */
+setTimeout(finalSurprise, 3000);
+
+}, 800);
+};
+
+/* =========================
+MOON PULSE (SOFT)
+========================= */
+function startMoonPulse() {
+const moon = document.querySelector(".moon");
+if (!moon) return;
+
+setInterval(() => {
+moon.style.transform = "scale(1.05)";
+moon.style.boxShadow =
+"0 0 60px rgba(255,255,220,.9), 0 0 120px rgba(255,255,220,.5)";
+setTimeout(() => {
+moon.style.transform = "scale(1)";
+moon.style.boxShadow =
+"0 0 40px rgba(255,255,220,.8), 0 0 90px rgba(255,255,220,.4), 0 0 150px rgba(255,255,220,.25)";
+}, 800);
+}, 2500);
+}
+
+/* =========================
+FINAL SURPRISE (END TEXT)
+========================= */
+function finalSurprise() {
+
+const lastText = document.querySelectorAll(".fadeText");
+const last = lastText[lastText.length - 1];
+
+if (!last) return;
+
+/* wait for last text */
+setTimeout(() => {
+
+/* hearts burst */
+for (let i = 0; i < 25; i++) {
+createBurstHeart();
+}
+
+/* fireworks */
+for (let i = 0; i < 15; i++) {
+createFirework();
+}
+
+/* fade everything */
+document.body.style.transition = "2s";
+setTimeout(() => {
+document.body.style.opacity = "0.3";
+}, 2500);
+
+}, 1000);
+}
+
+/* =========================
+BURST HEART
+========================= */
+function createBurstHeart() {
+const h = document.createElement("div");
+h.innerHTML = "🤍";
+h.style.position = "fixed";
+h.style.left = Math.random() * 100 + "%";
+h.style.bottom = "0px";
+h.style.fontSize = "20px";
+h.style.animation = "heartUp 4s linear forwards";
+document.body.appendChild(h);
+setTimeout(() => h.remove(), 4000);
+}
+
+/* =========================
+FIREWORK
+========================= */
+function createFirework() {
+const f = document.createElement("div");
+f.className = "firework";
+f.style.left = Math.random() * window.innerWidth + "px";
+f.style.top = (window.innerHeight - Math.random() * 200) + "px";
+    const colors = ["#fff", "#ff4d6d", "#ffd93d", "#4da6ff", "#b84dff"];
+f.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+document.body.appendChild(f);
+
+setTimeout(() => f.remove(), 1200);
+}
+
+/* =========================
+HEART ANIMATION STYLE
+========================= */
+const style = document.createElement("style");
+style.innerHTML = 
+@keyframes heartUp {
+0% { transform: translateY(0); opacity: 1; }
+100% { transform: translateY(-120vh); opacity: 0; }
+}
+;
+document.head.appendChild(style);
     
     </script>
 
