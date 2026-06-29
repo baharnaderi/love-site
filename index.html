@@ -156,37 +156,21 @@ opacity:1;
 /* ========================= */
 
 .hero{
-
 position:relative;
-
 z-index:5;
-
 width:90%;
-
 max-width:900px;
-
-padding:60px;
-
+margin:0 auto;
+padding:60px 30px;
 border-radius:35px;
-
 text-align:center;
-
 background:rgba(255,255,255,.06);
-
 backdrop-filter:blur(18px);
-
 -webkit-backdrop-filter:blur(18px);
-
 border:1px solid rgba(255,255,255,.15);
-
-box-shadow:
-
-0 0 40px rgba(255,255,255,.05),
-
-0 20px 60px rgba(0,0,0,.45);
-
+box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
 animation:fadeUp 1.8s ease;
-
+overflow:hidden;
 }
 
 /* متن های اول */
@@ -610,8 +594,10 @@ transition:1.2s;
 
 .fadeText{
 opacity:0;
-transform:translateY(30px);
-transition:1.2s ease;
+transform:translateY(25px);
+transition:1s ease;
+line-height:1.9;
+margin:12px 0;
 }
 
 .fadeText.show{
