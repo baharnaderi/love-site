@@ -158,10 +158,11 @@ opacity:1;
 .hero{
 width:90%;
 max-width:800px;
-margin:80px auto;
+margin:100px auto;
 padding:50px 30px;
 border-radius:25px;
 text-align:center;
+position:relative;
 
 background:rgba(255,255,255,.06);
 backdrop-filter:blur(18px);
@@ -170,7 +171,7 @@ backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,.15);
 box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
 
-position:relative;
+overflow:hidden;
 }
 /* متن های اول */
 
@@ -625,13 +626,12 @@ z-index:10;
 overflow-y:auto;
 max-height:80vh;
 }
- body{
+        body{
 margin:0;
 padding:0;
 min-height:100vh;
+position:relative;
 overflow-x:hidden;
-font-family:sans-serif;
-background:#000;
 }
         @media(max-width:480px){
 .hero{
