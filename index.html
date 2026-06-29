@@ -596,7 +596,13 @@ transform:scale(25);
 opacity:0;
 }
 }
-    
+    .firework{
+background: radial-gradient(circle,#fff,#ffd700,#ff4d6d,#7b2cff);
+box-shadow:
+0 0 10px #fff,
+0 0 25px #ffd700,
+0 0 40px #ff4d6d;
+}
     </style>
 
 </head>
@@ -738,7 +744,28 @@ f.remove();
 
 }
 
-setInterval(firework,1800);
+function firework(){
+
+const f=document.createElement("div");
+
+f.className="firework";
+
+f.style.left=Math.random()*window.innerWidth+"px";
+
+f.style.top=(100+Math.random()*(window.innerHeight-200))+"px";
+
+f.style.width=(6+Math.random()*8)+"px";
+
+f.style.height=f.style.width;
+
+document.body.appendChild(f);
+
+setTimeout(()=>{
+f.remove();
+},1000);
+
+}
+    
     </script>
 
 </body>
