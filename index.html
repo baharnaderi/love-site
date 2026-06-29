@@ -532,7 +532,7 @@ opacity:0;
 
 z-index:2;
 
-animation:shoot 4s linear infinite;
+animation:shoot 7s linear infinite;
 
 }
 
@@ -575,61 +575,7 @@ transform:translate(900px,500px) rotate(-25deg);
 }
 
 }
-  .hero.hide{
-
-opacity:0;
-
-transform:scale(.95);
-
-transition:1s;
-
-pointer-events:none;
-
-}  
-        body.light{
-
-background:
-radial-gradient(circle at top,#2a4d73 0%,#07111d 45%,#02050a 100%);
-
-transition:1.5s;
-
-}
-
-body.light .moon{
-
-box-shadow:
-0 0 80px rgba(255,255,220,.9),
-0 0 140px rgba(255,255,220,.5),
-0 0 200px rgba(255,255,220,.3);
-
-}
- @keyframes floatUp{
-
-0%{
-
-transform:translateY(0);
-
-opacity:0;
-
-}
-
-10%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-800px);
-
-opacity:0;
-
-}
-
-}
-
-  
+    
     </style>
 
 </head>
@@ -709,50 +655,6 @@ const meteor=document.createElement("div");
 meteor.className="shooting-star";
 
 shooting.appendChild(meteor);
-        const startBtn = document.getElementById("startBtn");
-const hero = document.querySelector(".hero");
-
-startBtn.addEventListener("click",()=>{
-
-hero.classList.add("hide");
-
-});
-        startBtn.addEventListener("click",()=>{
-
-hero.classList.add("hide");
-
-document.body.classList.add("light");
-
-});
-        function createHeart(){
-
-const heart=document.createElement("div");
-
-heart.innerHTML="🤍";
-
-heart.style.position="absolute";
-
-heart.style.left=Math.random()*100+"%";
-
-heart.style.bottom="-20px";
-
-heart.style.fontSize=(16+Math.random()*20)+"px";
-
-heart.style.opacity="0.8";
-
-heart.style.animation="floatUp 5s linear forwards";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},5000);
-
-}
-
-setInterval(createHeart,1200);
     </script>
 
 </body>
