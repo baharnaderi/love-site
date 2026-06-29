@@ -624,7 +624,11 @@ transform:translate(900px,500px) rotate(-25deg);
 
         </button>
 <div id="message" style="display:none;">
-
+    
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+    
     <h2>🤍 تولدت مبارک محمدرضا 🤍</h2>
 
     <p>
@@ -691,6 +695,9 @@ message.style.display = "flex";
     },800);
 
 };
+        const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.play();
     </script>
 
 </body>
