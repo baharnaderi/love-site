@@ -689,6 +689,21 @@ setTimeout(()=>heart.remove(),7000);
 }
 
 setInterval(createHeart,800);
+        const startBtn = document.getElementById("startBtn");
+const hero = document.querySelector(".hero");
+const message = document.getElementById("message");
+
+startBtn.onclick = function () {
+
+    hero.style.opacity = "0";
+
+    setTimeout(function () {
+
+        message.style.display = "block";
+
+    },800);
+
+};
     </script>
 
 </body>
