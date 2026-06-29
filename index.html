@@ -401,18 +401,64 @@ width:95%;
 *{
 max-width:100%;
 }
-        #message{
-overflow-y:auto;
-padding-right:15px;
-scrollbar-gutter: stable;
+
+        /* =========================
+GLOBAL FIX (IMPORTANT)
+========================= */
+html, body{
+overflow-x:hidden;
+margin:0;
+padding:0;
 }
 
+/* =========================
+MESSAGE BOX FIX (MAIN PROBLEM SOLVED)
+========================= */
+#message{
+display:none;
+width:90%;
+max-width:800px;
+
+margin:80px auto;
+padding:40px 25px;
+box-sizing:border-box;
+
+border-radius:25px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+text-align:center;
+gap:18px;
+
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.15);
+box-shadow:0 0 40px rgba(255,255,255,.05),0 20px 60px rgba(0,0,0,.45);
+
+z-index:10;
+
+/* ✅ FIX SCROLL INSIDE BOX */
+max-height:80vh;
+overflow-y:auto;
+overflow-x:hidden;
+
+/* smooth scroll */
+scroll-behavior:smooth;
+}
+
+/* =========================
+CUSTOM SCROLLBAR (RIGHT SIDE FIX)
+========================= */
 #message::-webkit-scrollbar{
 width:6px;
 }
 
 #message::-webkit-scrollbar-thumb{
-background:rgba(255,255,255,.3);
+background:rgba(255,255,255,.25);
 border-radius:10px;
 }
 
@@ -420,11 +466,53 @@ border-radius:10px;
 background:transparent;
 }
 
-        #message{
-box-sizing:border-box;
-padding-top:40px;
-padding-bottom:40px;
+/* =========================
+TEXT FIX (NO OVERFLOW)
+========================= */
+#message h2,
+#message p{
+max-width:100%;
+word-break:break-word;
+overflow-wrap:break-word;
 }
+
+/* =========================
+SAFETY FOR ALL ELEMENTS
+========================= */
+*{
+box-sizing:border-box;
+}
+
+/* =========================
+MOBILE FIX FINAL
+========================= */
+@media(max-width:480px){
+
+.hero h1{
+font-size:30px;
+line-height:1.4;
+}
+
+#message{
+width:95%;
+padding:30px 15px;
+margin:60px auto;
+}
+
+.fadeText{
+padding:0 10px;
+line-height:1.8;
+}
+}
+
+/* =========================
+LAPTOP CENTER FIX
+========================= */
+.hero{
+margin:80px auto;
+}
+ 
+ 
 /* ========== END CSS ========== */
 
     </style>
