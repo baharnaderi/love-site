@@ -514,7 +514,26 @@ margin:80px auto;
  
  
 /* ========== END CSS ========== */
+        
+const colors = ["#fff", "#ff4d6d", "#ffd93d", "#4da6ff", "#b84dff"];
+f.style.background = colors[Math.floor(Math.random() * colors.length)];
 
+document.body.appendChild(f);
+
+setTimeout(() => f.remove(), 1200);
+}
+
+/* =========================
+HEART ANIMATION STYLE
+========================= */
+const style = document.createElement("style");
+style.innerHTML = 
+@keyframes heartUp {
+0% { transform: translateY(0); opacity: 1; }
+100% { transform: translateY(-120vh); opacity: 0; }
+}
+;
+document.head.appendChild(style);
     </style>
 
 </head>
@@ -844,6 +863,30 @@ t.classList.add("show");
 });
        // hero.style.display="none";
       //   message.style.display="block";
+
+        @keyframes heartFloatUp {
+0%{
+transform:translateY(0);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+.heart-float{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+color:white;
+pointer-events:none;
+z-index:999;
+animation:heartFloatUp 8s linear forwards;
+}
     
     </script>
 
