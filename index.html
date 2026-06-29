@@ -864,25 +864,6 @@ t.classList.add("show");
        // hero.style.display="none";
       //   message.style.display="block";
 
- function createHeart() {
-    console.log("heart created"); // تست
-
-    const heart = document.createElement("div");
-    heart.innerHTML = "🤍";
-
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-20px";
-    heart.style.fontSize = "20px";
-    heart.style.zIndex = "9999";
-    heart.style.animation = "heartFloatUp 6s linear forwards";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6000);
-}
-
-setInterval(createHeart, 2000);
     
     </script>
 
