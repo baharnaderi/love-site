@@ -368,6 +368,39 @@ margin:60px auto;
 padding:35px 18px;
 }
 }
+        /* ===== FIX OVERFLOW ===== */
+body, html{
+overflow-x:hidden;
+}
+
+/* ===== FIX TEXT BREAK ===== */
+.hero h1{
+word-break:break-word;
+overflow-wrap:break-word;
+}
+
+/* ===== FIX MOBILE TITLE ===== */
+@media(max-width:480px){
+.hero h1{
+font-size:28px;
+line-height:1.4;
+}
+}
+
+/* ===== CENTER FIX LAPTOP ===== */
+.hero{
+transform:translateY(-10px);
+}
+
+/* ===== FIX MESSAGE WIDTH ===== */
+#message{
+width:95%;
+}
+
+/* ===== SAFETY FOR ANY ELEMENT ===== */
+*{
+max-width:100%;
+}
 
 /* ========== END CSS ========== */
 
@@ -630,18 +663,19 @@ const message = document.getElementById("message");
 
 startBtn.onclick = function () {
 
-    hero.style.opacity = "0";
+hero.style.opacity = "0";
 
-    setTimeout(function () {
-
+setTimeout(() => {
 hero.style.display = "none";
 message.style.display = "flex";
-        texts.forEach((t,i)=>{
-setTimeout(()=>{
-t.classList.add("show");
-},i*1800);
+
+window.scrollTo(0,0);
+
+texts.forEach((t,i)=>{
+setTimeout(()=>t.classList.add("show"), i*800);
 });
-    },800);
+
+},800);
 
 };
        const bgMusic = document.getElementById("bgMusic");
