@@ -628,48 +628,8 @@ opacity:0;
 }
 
 }
-.meteor{
-position:absolute;
-width:2px;
-height:120px;
-background:linear-gradient(white,transparent);
-opacity:0;
-transform:rotate(-25deg);
-animation:meteorMove 3s linear forwards;
-z-index:2;
-}
 
-@keyframes meteorMove{
-0%{
-opacity:0;
-transform:translate(0,0) rotate(-25deg);
-}
-10%{
-opacity:1;
-}
-100%{
-opacity:0;
-transform:translate(900px,600px) rotate(-25deg);
-}
-}
-        @keyframes floatUp{
-
-0%{
-transform:translateY(0);
-opacity:0;
-}
-
-10%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-900px);
-opacity:0;
-}
-
-}
- 
+  
     </style>
 
 </head>
@@ -774,31 +734,18 @@ heart.style.position="absolute";
 
 heart.style.left=Math.random()*100+"%";
 
-function createHeart(){
+heart.style.bottom="-20px";
 
-const heart=document.createElement("div");
+heart.style.fontSize=(16+Math.random()*20)+"px";
 
-heart.innerHTML = "🤍";
+heart.style.opacity="0.8";
 
-heart.style.position = "absolute";
-
-heart.style.left = Math.random()*100 + "%";
-
-heart.style.bottom = "-20px";
-
-heart.style.fontSize = (15 + Math.random()*25) + "px";
-
-heart.style.opacity = Math.random();
-
-heart.style.animation = floatUp ${3 + Math.random()*4}s linear forwards;
+heart.style.animation="floatUp 5s linear forwards";
 
 document.body.appendChild(heart);
 
-setTimeout(()=>heart.remove(),7000);
+setTimeout(()=>{
 
-}
-
-setInterval(createHeart,800);
 heart.remove();
 
 },5000);
@@ -806,23 +753,6 @@ heart.remove();
 }
 
 setInterval(createHeart,1200);
-        function createMeteor(){
-
-const m=document.createElement("div");
-
-m.className="meteor";
-
-m.style.left=Math.random()*100+"%";
-
-m.style.top=Math.random()*20+"%";
-
-document.body.appendChild(m);
-
-setTimeout(()=>m.remove(),3000);
-
-}
-
-setInterval(createMeteor,4000);
     </script>
 
 </body>
