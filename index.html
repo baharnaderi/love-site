@@ -608,6 +608,12 @@ transform:translateY(30px);
 transition:1.2s;
 }
 
+.fadeText{
+opacity:0;
+transform:translateY(40px);
+transition:1.2s ease;
+}
+
 .fadeText.show{
 opacity:1;
 transform:translateY(0);
@@ -809,9 +815,10 @@ f.remove();
         const texts=document.querySelectorAll(".fadeText");
 
 texts.forEach((t,i)=>{
+t.style.transitionDelay = (i * 0.4) + "s";
 setTimeout(()=>{
 t.classList.add("show");
-},i*1800);
+}, i * 400);
 });
        // hero.style.display="none";
       //   message.style.display="block";
