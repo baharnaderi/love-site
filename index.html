@@ -815,10 +815,9 @@ f.remove();
         const texts=document.querySelectorAll(".fadeText");
 
 texts.forEach((t,i)=>{
-t.style.transitionDelay = (i * 0.4) + "s";
 setTimeout(()=>{
 t.classList.add("show");
-}, i * 400);
+}, i * 1800);
 });
        // hero.style.display="none";
       //   message.style.display="block";
