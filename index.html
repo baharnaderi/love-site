@@ -674,21 +674,8 @@ heart.style.position = "absolute";
 
 heart.style.left = Math.random()*100 + "%";
 
-heart.style.bottom = "-20px";
-
-heart.style.fontSize = (15 + Math.random()*25) + "px";
-
-heart.style.opacity = Math.random();
-
-heart.style.animation = floatUp ${3 + Math.random()*4}s linear forwards;
-
-document.body.appendChild(heart);
-
-setTimeout(()=>heart.remove(),7000);
-
 }
 
-setInterval(createHeart,800);
         const startBtn = document.getElementById("startBtn");
 const hero = document.querySelector(".hero");
 const message = document.getElementById("message");
