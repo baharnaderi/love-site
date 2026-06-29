@@ -747,12 +747,17 @@ startBtn.onclick = function () {
 
 hero.style.display = "none";
 message.style.display = "flex";
+        texts.forEach((t,i)=>{
+setTimeout(()=>{
+t.classList.add("show");
+},i*1800);
+});
     },800);
 
 };
        const bgMusic = document.getElementById("bgMusic");
 
- bgMusic.play();
+ // bgMusic.play();
 
         function firework(){
 
@@ -803,8 +808,8 @@ setTimeout(()=>{
 t.classList.add("show");
 },i*1800);
 });
-        hero.style.display="none";
-message.style.display="block";
+       // hero.style.display="none";
+      //   message.style.display="block";
     
     </script>
 
